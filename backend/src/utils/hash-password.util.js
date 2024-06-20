@@ -5,8 +5,6 @@ export const handleHashPassword = async ({ password, saltNumber = 10 }) => {
   const salt = await bcrypt.genSalt(saltNumber);
   const hashPassword = await bcrypt.hash(password, salt);
 
-  console.log('object');
-
   return hashPassword;
 };
 

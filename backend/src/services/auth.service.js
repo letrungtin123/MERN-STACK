@@ -10,3 +10,8 @@ export const createUser = async (data)=> {
     const user = await User.create(Data);
     return user;
 }
+//update password 
+export const updatePassword = async (userId,newPassword) => {
+    const newUserUpdate = await User.findByIdAndUpdate({_id:userId},{password: newPassword}, {new:true});
+        return Boolean(newUserUpdate);
+}
