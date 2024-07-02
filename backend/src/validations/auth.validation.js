@@ -69,4 +69,3 @@ export const changePasswordValidation = joi.object({
     'any.required': 'Mật khẩu không được để trống',
   }),
 });
-

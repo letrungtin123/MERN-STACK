@@ -53,7 +53,7 @@ export const loginController = async (req, res) => {
   }
 
   // generate token
-  const accessToken = await handleGenenateToken({ payload: { _id: user._id, email: user.email } });
+  const accessToken = await handleGenenateToken({ payload: { _id: user._id, email: user.email, role: user.role } });
 
   return res.status(HTTP_STATUS.OK).json({
     message: 'Login successfully',

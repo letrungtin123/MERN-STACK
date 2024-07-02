@@ -1,8 +1,8 @@
-import { createCategory, getCategories, getCategoryById, updateCategory } from '../controllers/category.controller.js';
+import { createProduct, getProductById, getProducts, updateProduct } from '../controllers/product.controller.js';
 
-import { categoryMiddleware } from '../middlewares/category.middleware.js';
 import { checkPermission } from '../middlewares/check-permission.middleware.js';
 import express from 'express';
+import { productMiddleware } from '../middlewares/product.middleware.js';
 import { verifyToken } from '../middlewares/verify-token.middleware.js';
 import { wrapRequestHandler } from '../utils/handlers.util.js';
 
@@ -10,22 +10,22 @@ const router = express.Router();
 
 // create brand
 router.post(
-  '/category',
+  '/product',
   wrapRequestHandler(verifyToken),
   wrapRequestHandler(checkPermission),
-  wrapRequestHandler(categoryMiddleware),
-  wrapRequestHandler(createCategory),
+  wrapRequestHandler(productMiddleware),
+  wrapRequestHandler(createProduct),
 );
 // get all
-router.get('/categories', wrapRequestHandler(getCategories));
+router.get('/products', wrapRequestHandler(getProducts));
 // get by id
-router.get('/category/:id', wrapRequestHandler(getCategoryById));
+router.get('/product/:id', wrapRequestHandler(getProductById));
 // update
 router.patch(
-  '/category/:id',
+  '/product/:id',
   wrapRequestHandler(verifyToken),
   wrapRequestHandler(checkPermission),
-  wrapRequestHandler(updateCategory),
+  wrapRequestHandler(updateProduct),
 );
 
 export default router;
