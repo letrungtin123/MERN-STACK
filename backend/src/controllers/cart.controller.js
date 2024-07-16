@@ -281,35 +281,4 @@ export const cartController = {
       success: true,
     });
   },
-
-  // delete cart by userId
-  deleteCartByUserId: async (req, res) => {
-    const { _id } = req.user;
-    const { userId } = req.query;
-
-    if (userId !== _id) {
-      return res.status(HTTP_STATUS.UNAUTHORIZED).json({
-        message: 'Unauthorized',
-        success: false,
-      });
-    }
-
-    const result = await cartService.getCartsByUserId({ userId });
-    if (!result) {
-      return res.status(HTTP_STATUS.NOT_FOUND).json({
-        message: 'Cart not found',
-        success: false,
-      });
-    }
-
-    result.carts = [];
-    result.total = 0;
-
-    await result.save();
-
-    return res.status(HTTP_STATUS.OK).json({
-      message: 'Delete cart successfully',
-      success: true,
-    });
-  },
 };
