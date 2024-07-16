@@ -19,17 +19,18 @@ export const productValidation = joi.object({
     'any.required': 'Category is required',
   }),
   status: joi.string().valid('active', 'inactive').default('active'),
-  colors: joi.array().items(
-    joi.object({
-      color: joi.string().required(),
-      quantity: joi.number().required(),
-    }),
-  ),
   sizes: joi.array().items(
     joi.object({
       size: joi.string().required(),
       quantity: joi.number().required(),
+      color: joi.string().required(),
     }),
   ),
-  images: joi.array().items(joi.string().required()),
+  images: joi.array().items(
+    joi.object({
+      url: joi.string().required(),
+      public_id: joi.string().required(),
+    }),
+  ),
+  sale: joi.number().default(0),
 });

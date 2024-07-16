@@ -1,7 +1,7 @@
 import { HTTP_STATUS } from '../common/http-status.common.js';
 import { productValidation } from '../validations/product.validation.js';
 
-export const productMiddleware = (req, res, next) => {
+export const productMiddleware = async (req, res, next) => {
   const body = req.body;
 
   const { error } = productValidation.validate(body, { abortEarly: false });
