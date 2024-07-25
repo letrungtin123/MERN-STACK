@@ -1,8 +1,8 @@
 import { createCategory, getCategories, getCategoryById, updateCategory } from '../controllers/category.controller.js';
 
+import express from 'express';
 import { categoryMiddleware } from '../middlewares/category.middleware.js';
 import { checkPermission } from '../middlewares/check-permission.middleware.js';
-import express from 'express';
 import { verifyToken } from '../middlewares/verify-token.middleware.js';
 import { wrapRequestHandler } from '../utils/handlers.util.js';
 

@@ -5,3 +5,9 @@ export const updateUserService = async (userId, data) => {
 
   return newUserUpdate;
 };
+
+export const checkUserExist = async (userId) => {
+  const user = await User.findOne({ _id: userId });
+
+  return user;
+};

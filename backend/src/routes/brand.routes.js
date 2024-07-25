@@ -1,8 +1,8 @@
 import { createBrand, getBrandById, getBrands, updateBrand } from '../controllers/brand.controller.js';
 
+import express from 'express';
 import { brandMiddleware } from '../middlewares/brand.middleware.js';
 import { checkPermission } from '../middlewares/check-permission.middleware.js';
-import express from 'express';
 import { verifyToken } from '../middlewares/verify-token.middleware.js';
 import { wrapRequestHandler } from '../utils/handlers.util.js';
 

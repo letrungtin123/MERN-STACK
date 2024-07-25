@@ -1,6 +1,6 @@
-import { checkPermission } from '../middlewares/check-permission.middleware.js';
 import express from 'express';
 import { productController } from '../controllers/product.controller.js';
+import { checkPermission } from '../middlewares/check-permission.middleware.js';
 import { productMiddleware } from '../middlewares/product.middleware.js';
 import { verifyToken } from '../middlewares/verify-token.middleware.js';
 import { wrapRequestHandler } from '../utils/handlers.util.js';

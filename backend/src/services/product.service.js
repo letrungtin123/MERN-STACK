@@ -56,4 +56,13 @@ export const productService = {
   deleteProduct: async (productId) => {
     return await Product.findByIdAndDelete(productId);
   },
+
+  // update quantity product when order
+  updateQuantityProduct: async (productId, sizeId, quantity) => {
+    return await Product.findOneAndUpdate(
+      { _id: productId, 'sizes._id': sizeId },
+      { $set: { 'sizes.$.quantity': quantity } }, // sizes.$.quantity: giải thích cụ thể ở dòng 64: https://docs.mongodb.com/manual/reference/operator/update/positional-filtered/#up._S_
+      { new: true },
+    );
+  },
 };

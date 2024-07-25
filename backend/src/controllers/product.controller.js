@@ -1,5 +1,5 @@
-import { HTTP_STATUS } from '../common/http-status.common.js';
 import mongoose from 'mongoose';
+import { HTTP_STATUS } from '../common/http-status.common.js';
 import { productService } from '../services/product.service.js';
 
 export const productController = {
